@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>City:</b>
+  <%= @item.city %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%= @item.brand %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @item.size %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%= @item.condition %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @item.contact %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

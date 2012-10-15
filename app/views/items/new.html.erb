@@ -1,0 +1,29 @@
+
+
+<% provide(:title, 'New Item') %>
+
+<%= link_to image_tag("Sellheader.jpg", alt: "Cyclop"), 'http://cyclop.in' %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@item) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+
+        <%= f.label :brand %>
+        <%= f.text_field :brand %>
+
+        <%= f.label :size %>
+        <%= f.number_field :size %>
+
+        <%= f.label :condition %>
+        <%= f.text_field :condition %>
+
+        <%= f.label :contact %>
+        <%= f.number_field :contact %>
+
+        <%= f.submit "Post New Item", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

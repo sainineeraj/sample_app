@@ -8,16 +8,26 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @user}
+    end
   end
+
   def edit
     # @user = User.find(params[:id])
   end
   def index
     @users = User.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @users}
+    end
   end
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = "User deleted."
     redirect_to users_url
   end
 
@@ -38,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to Cyclop!"
       redirect_to @user
     else
       render 'new'

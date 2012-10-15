@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(params[:micropost])
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "Item Posted for Sale!"
       redirect_to root_url
     else
       @feed_items = []
@@ -23,4 +23,5 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.find_by_id(params[:id])
     redirect_to root_url if @micropost.nil?
   end
+
 end
